@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "load_db": "node db/index.js"
+    "initdb": "psql -U postgres -f db/schema.sql"
   },
   "dependencies": {
     "axios": "0.27.2",

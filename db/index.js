@@ -1,14 +1,20 @@
-const { Pool, Client } = require('pg')
+const { Client } = require('pg')
 require('dotenv').config();
 
 // pools will use environment variables
 // for connection information
 
-const pool = new Pool({
-  password: process.env.PSQLPASS
+const client = new Client({
+  password: process.env.PSQLPASS,
+  database: 'test'
 })
+client.connect();
 
-pool.query('SELECT NOW()', (err, res) => {
-  console.log(err, res)
-  pool.end()
+client.query('SELECT * FROM person', (err, res) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(res.rows);
+  }
+  client.end()
 })
