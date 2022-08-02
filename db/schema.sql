@@ -42,20 +42,20 @@ CREATE TABLE photos (
 -- ---
 
 CREATE TABLE characteristics (
-  id SMALLINT NOT NULL,
+  id INTEGER NOT NULL,
+  product_id INTEGER NOT NULL,
   characteristic VARCHAR(10) NOT NULL,
   PRIMARY KEY (id)
 );
 
 -- ---
--- Table 'review_characteristics'
+-- Table 'characteristics_review'
 -- ---
 
-
-CREATE TABLE review_characteristics (
+CREATE TABLE characteristics_review (
   id INTEGER NOT NULL,
-  review_id INTEGER NOT NULL,
   characteristic_id INTEGER NOT NULL,
+  review_id INTEGER NOT NULL,
   rating SMALLINT NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (review_id) REFERENCES reviews (id),
@@ -63,13 +63,10 @@ CREATE TABLE review_characteristics (
 );
 
 -- ---
--- Table 'product_characteristics'
+-- ETL proccess
 -- ---
-
-CREATE TABLE product_characteristics (
-  id INTEGER NOT NULL,
-  product_id INTEGER NOT NULL,
-  characteristic_id SMALLINT NOT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (characteristic_id) REFERENCES characteristics (id)
-);
+\! pwd
+\copy reviews FROM 'data/reviews.csv' DELIMITER ',' CSV HEADER;
+\copy photos FROM 'data/reviews_photos.csv' DELIMITER ',' CSV HEADER;
+\copy characteristics FROM 'data/characteristics.csv' DELIMITER ',' CSV HEADER;
+\copy characteristics_review FROM 'data/characteristics_review.csv' DELIMITER ',' CSV HEADER;
