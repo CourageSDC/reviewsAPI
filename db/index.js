@@ -1,14 +1,10 @@
-const { Client } = require('pg')
+const { Pool } = require('pg')
 require('dotenv').config();
 
 
-const client = new Client({
+const pool = new Pool({
   database: 'reviewsapi'
 })
-client.connect();
+// Pool.connect();
 
-client.query('SELECT * FROM reviews LIMIT 1')
-  .then((res) => {
-    console.log(res);
-    client.end();
-  });
+module.exports = pool;
