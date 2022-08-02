@@ -69,4 +69,4 @@ CREATE TABLE characteristics_review (
 \copy reviews FROM 'data/reviews.csv' DELIMITER ',' CSV HEADER;
 \copy photos FROM 'data/reviews_photos.csv' DELIMITER ',' CSV HEADER;
 \copy characteristics FROM 'data/characteristics.csv' DELIMITER ',' CSV HEADER;
-\copy characteristics_review FROM 'data/characteristics_review.csv' DELIMITER ',' CSV HEADER;
+\copy characteristics_review FROM 'data/characteristics_reviews.csv' DELIMITER ',' CSV HEADER;
