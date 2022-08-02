@@ -18,7 +18,7 @@ CREATE TABLE reviews (
   body TEXT NOT NULL,
   recommended BOOLEAN NOT NULL DEFAULT 'false',
   reported BOOLEAN NOT NULL DEFAULT 'false',
-  name VARCHAR(50) NOT NULL,
+  reviewer_name VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,
   response TEXT NULL DEFAULT NULL,
   helpfulness INTEGER NOT NULL DEFAULT 0,

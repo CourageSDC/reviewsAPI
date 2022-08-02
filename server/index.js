@@ -6,6 +6,7 @@ const router = require('./routes');
 const app = express();
 
 app.use(express.json());
+app.use('/', router);
 
 const port = 5000;
 
