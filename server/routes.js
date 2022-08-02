@@ -4,7 +4,7 @@ const { getReviews } = require('./controllers');
 
 const router = express.Router();
 
-router.get('reviews', (req, res) => {
+router.get('/reviews', (req, res) => {
   const count = req.query.count || 5;
   const page = req.query.count || 1;
   const product_id = req.query.product_id;
@@ -19,3 +19,5 @@ router.get('reviews', (req, res) => {
       });
     });
 });
+
+module.exports = router;

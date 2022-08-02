@@ -10,7 +10,7 @@ CREATE DATABASE reviewsAPI;
 -- ---
 
 CREATE TABLE reviews (
-  id INTEGER NOT NULL,
+  review_id INTEGER NOT NULL,
   product_id INTEGER NOT NULL,
   rating SMALLINT NOT NULL,
   date BIGINT NOT NULL,
