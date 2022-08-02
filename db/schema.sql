@@ -52,7 +52,7 @@ CREATE TABLE characteristics (
 -- Table 'characteristics_review'
 -- ---
 
-CREATE TABLE characteristics_review (
+CREATE TABLE characteristic_reviews (
   id INTEGER NOT NULL,
   characteristic_id INTEGER NOT NULL,
   review_id INTEGER NOT NULL,
@@ -69,4 +69,4 @@ CREATE TABLE characteristics_review (
 \copy reviews FROM 'data/reviews.csv' DELIMITER ',' CSV HEADER;
 \copy photos FROM 'data/reviews_photos.csv' DELIMITER ',' CSV HEADER;
 \copy characteristics FROM 'data/characteristics.csv' DELIMITER ',' CSV HEADER;
-\copy characteristics_review FROM 'data/characteristics_reviews.csv' DELIMITER ',' CSV HEADER;
+\copy characteristic_reviews FROM 'data/characteristic_reviews.csv' DELIMITER ',' CSV HEADER;
