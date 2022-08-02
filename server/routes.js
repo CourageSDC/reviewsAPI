@@ -1,6 +1,9 @@
 const express = require('express');
 
-const { getReviews } = require('./controllers');
+const {
+  getReviews,
+  getPhotos
+} = require('./controllers');
 
 const router = express.Router();
 

@@ -14,8 +14,17 @@ const getReviews = (product_id, count, page) => {
         ...review,
         date: new Date(Number(1596080481467)).toISOString()
       }));
-    })
-  };
+    });
+};
+
+const getPhotos = (review_id) => {
+  let queryString = `SELECT
+    id, url
+    FROM photos
+    WHERE review_id = ${review_id}`
+  return db.query(queryString)
+    .then((res) => res.rows);
+};
 
 
 module.exports.getReviews = getReviews;
