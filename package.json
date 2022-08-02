@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server/index.js",
     "initdb": "psql -U postgres -f db/schema.sql",
-    "testquery": "node db/index.js"
+    "testquery": "node spec/test.js"
   },
   "dependencies": {
     "axios": "0.27.2",
