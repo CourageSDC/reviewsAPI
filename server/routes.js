@@ -1,9 +1,6 @@
 const express = require('express');
 
-const {
-  getReviews,
-  getPhotos
-} = require('./controllers');
+const { getReviews } = require('./controllers');
 
 const router = express.Router();
 
@@ -20,6 +17,10 @@ router.get('/reviews', (req, res) => {
         count,
         results: data
       });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(404);
     });
 });
 
