@@ -11,12 +11,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use('/', router);
 
-// app.get('/reviews', (req, res) => {
-//   console.log(req.query);
-//   res.sendStatus(200);
-// })
-
-const port = 5000;
+const port = process.env.PORT;
 
 const server = app.listen(port, () => {
   console.log(`listening on port ${port}`);

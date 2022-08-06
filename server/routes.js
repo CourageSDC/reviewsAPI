@@ -24,16 +24,16 @@ router.get('/reviews', (req, res) => {
     });
 });
 
-router.post('/reviews', (req, res) => {
-  postReview(req.body)
-    .then(() => {
-      res.sendStatus(201);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(404);
-    });
-})
+// router.post('/reviews', (req, res) => {
+//   postReview(req.body)
+//     .then(() => {
+//       res.sendStatus(201);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.sendStatus(404);
+//     });
+// })
 
 router.get('/reviews/meta', (req, res) => {
   const product_id = req.query.product_id;

@@ -86,15 +86,42 @@ const getMeta = (product_id) => {
     });
 }
 
-// product_id
-// rating
-// summary
-// body
-// recommend
-// name
-// email
-// photos
-// characteristics
+/*
+with first_insert as (
+   insert into sample(firstname,lastname) 
+   values('fai55','shaggk') 
+   RETURNING id
+), 
+second_insert as (
+  insert into sample1( id ,adddetails) 
+  values
+  ( (select id from first_insert), 'ss')
+  RETURNING user_id
+)
+insert into sample2 ( id ,adddetails) 
+values 
+( (select user_id from first_insert), 'ss');
+*/
+
+// const postReview = (params) => {
+//   const queryString = `INSERT INTO
+//   reviews ( product_id, rating, summary, recommended, body, date, reviewer_name, email )
+//   VALUES (
+//     ${params.product_id}
+//     ${params.rating}
+//     ${params.summary}
+//     ${params.recommended}
+//     ${params.body}
+//     ${(new Date()).valueOf()}
+//     ${params.name}
+//     ${params.email}
+//   )
+//   `
+//   return db.query(queryString);
+// }
+
+
 
 module.exports.getReviews = getReviews;
 module.exports.getMeta = getMeta;
+// module.exports.postReview = postReview;
