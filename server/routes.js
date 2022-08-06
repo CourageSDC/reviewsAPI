@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { getReviews } = require('./controllers');
+const { getReviews, getMeta } = require('./controllers');
 
 const router = express.Router();
 
@@ -17,6 +17,30 @@ router.get('/reviews', (req, res) => {
         count,
         results: data
       });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(404);
+    });
+});
+
+router.post('/reviews', (req, res) => {
+  postReview(req.body)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(404);
+    });
+})
+
+router.get('/reviews/meta', (req, res) => {
+  const product_id = req.query.product_id;
+  getMeta(product_id)
+    .then((data) => {
+      res.status(200);
+      res.send(data);
     })
     .catch((err) => {
       console.error(err);
