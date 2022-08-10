@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use('/', router);
 
+app.use(express.static('loaderio'))
+
 const port = process.env.PORT;
 
 const server = app.listen(port, () => {
