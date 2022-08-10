@@ -29,7 +29,7 @@ const getMeta = (product_id) => {
     (
       SELECT json_agg(row_to_json(r)) FROM (
         SELECT rating, COUNT(*) FROM reviews
-        WHERE product_id = 2
+        WHERE product_id = ${product_id}
         GROUP BY rating
       ) AS r
     ) AS ratings,

@@ -24,7 +24,7 @@ CREATE TABLE reviews (
   helpfulness INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (id)
 );
-
+CREATE INDEX reviews_idx on reviews (product_id);
 -- ---
 -- Table 'photos'
 -- ---
@@ -36,7 +36,7 @@ CREATE TABLE photos (
   PRIMARY KEY (id),
   FOREIGN KEY (review_id) REFERENCES reviews (id)
 );
-
+CREATE INDEX photos_idx on photos (review_id);
 -- ---
 -- Table 'characteristics'
 -- ---
@@ -47,7 +47,8 @@ CREATE TABLE characteristics (
   characteristic VARCHAR(10) NOT NULL,
   PRIMARY KEY (id)
 );
-
+CREATE INDEX char_idx on characteristics (product_id);
+CREATE INDEX char_id_idx on characteristics (id);
 -- ---
 -- Table 'characteristics_review'
 -- ---
@@ -61,7 +62,8 @@ CREATE TABLE characteristic_reviews (
   FOREIGN KEY (review_id) REFERENCES reviews (id),
   FOREIGN KEY (characteristic_id) REFERENCES characteristics (id)
 );
-
+CREATE INDEX char_reviews_idx on characteristic_reviews (review_id);
+CREATE INDEX char_reviews_char_idx on characteristic_reviews (characteristic_id);
 -- ---
 -- ETL proccess
 -- ---
